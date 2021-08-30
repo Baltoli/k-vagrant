@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     echo 'export PATH=/home/vagrant/.local/bin:$PATH' >> /home/vagrant/.bashrc
+    echo 'add-auto-load-safe-path /home/vagrant/k/llvm-backend/target/build/install/lib/kllvm/gdb/interpreter-gdb.py' >> /home/vagrant/.gdbinit
 
     git clone --recursive https://github.com/kframework/k.git
   SHELL
